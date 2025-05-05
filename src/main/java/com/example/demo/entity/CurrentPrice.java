@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table
 public class CurrentPrice{
@@ -23,6 +25,8 @@ public class CurrentPrice{
     @Column String shortName; //幣別
     @Column String longName; //幣別中文名稱
     @Column double exchangeRate; //匯率
+
+    @JsonFormat(pattern="yyyy/MM/dd HH:mm:ss", timezone="GMT+8")
     @Column Date updDate; //更新時間
 
     public Integer getId(){ return id; }
